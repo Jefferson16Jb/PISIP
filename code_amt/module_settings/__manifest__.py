@@ -3,6 +3,7 @@
 {
     'name' : 'Módulo Seguridad y Configuración',
     'version' : '1.0',
+    'author': u'Carrillo-Simbaña-Quispe-Tipan',
     'summary': 'Módulo de seguridad y configuración',
     'sequence': 1,
     'description': """

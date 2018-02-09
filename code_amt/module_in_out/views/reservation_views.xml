@@ -8,8 +8,8 @@
         <field name="arch" type="xml">
             <form string="Resevación">
                 <header>
-                	<button name="action_process" type="object" states="draft" string="Tramitar solicitud" class="oe_highlight"/>
-                    <button name="action_sent_mail" type="object" string="Enviar correo electrónico"/>
+                	<button name="action_process" type="object" states="draft" string="Tramitar solicitudes" class="oe_highlight"/>
+                    <button name="action_sent_mail" type="object" states="in_process,done" string="Enviar correo electrónico"/>
                     <button name="action_cancel" states="in_process,done" string="Cancelar" type="object"/>
                     <button name="action_draft" states="cancel" string="Cambiar a borrador" type="object"/>
                     <field name="state" widget="statusbar" clickable="True"/>

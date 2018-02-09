@@ -4,6 +4,7 @@
     'name' : 'Módulo AMT',
     'version' : '1.0',
     'summary': 'Módulo de entrada y salida de vehiculos.',
+    'author': u'Carrillo-Simbaña-Quispe-Tipan',
     'sequence': 1,
     'description': """
         Módulo con la capacidad de registrar actividad AMT
@@ -13,10 +14,14 @@
     'images' : [],
     'depends' : ['base', 'base_setup', 'fleet', 'module_settings'],
     'data': [
+        'security/ir.model.access.csv',
+        'data/reservation_data.xml',
+        'data/request_vehicle_data.xml',
         'views/fleet_vehicle_views.xml',
         'views/fleet_vehicle_cost_views.xml',
         'views/fleet_vehicle_model_views.xml',
         'views/reservation_views.xml',
+        'views/request_vehicle_views.xml',
     ],
     'demo': [
     ],
