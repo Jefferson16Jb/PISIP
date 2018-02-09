@@ -16,7 +16,7 @@
         'views/fleet_vehicle_views.xml',
         'views/fleet_vehicle_cost_views.xml',
         'views/fleet_vehicle_model_views.xml',
-        #'views/reservation_views.xml',
+        'views/reservation_views.xml',
     ],
     'demo': [
     ],
