@@ -9,8 +9,12 @@
             <form string="Solicitud">
                 <header>
                 	<button name="action_process" type="object" states="draft" string="Tramitar solicitud" class="oe_highlight"/>
-                    <button name="action_sent_mail" type="object" string="Enviar correo electrónico"/>
-                    <button name="action_cancel" states="in_process,done" string="Cancelar" type="object"/>
+                    <button name="action_sent_mail" type="object" states="wait,approved" string="Enviar correo electrónico"/>
+                    <button name="action_service" states="approved" string="Circular" type="object" class="oe_highlight"/>
+                    <button name="action_re_entry" states="circulation" string="Re-ingresar" type="object" class="oe_highlight"/>
+                    <button name="action_aproved" states="wait" string="Aprobado" type="object" class="oe_highlight"/>
+                    <button name="action_denied" states="wait,approved" string="Denegado" type="object"/>
+                    <button name="action_cancel" states="wait" string="Cancelar" type="object"/>
                     <button name="action_draft" states="cancel" string="Cambiar a borrador" type="object"/>
                     <field name="state" widget="statusbar" clickable="True"/>
                 </header>
@@ -22,10 +26,11 @@
                     </div>
                     <group col="2" string="General Properties">
                         <group >
-                            <field name="authorized_id"/>
-                            <field name="drive_id"/>
+                            <field name="elaborared_id" attrs="{'readonly':[('state', 'not in', 'draft')]}"/>
+                            <field name="drive_id" attrs="{'readonly':[('state', 'not in', 'draft')]}"/>
                         </group>
                         <group >
+                        	<field name="authorized_id" attrs="{'readonly':[('state', 'not in', 'draft')]}"/>
                             <field name="date"/>
                             <field name="company_id" invisible="1"/>
                         </group>
@@ -34,8 +39,7 @@
                     	<page string="Información">
                     		<group>
 		                   		<group>
-		                   			<field name="vehicle_id" required="1" domain="[('state_availability', '=', 'available')]"/>
-		                   			<field name="origin"/>
+		                   			<field name="vehicle_id" attrs="{'readonly':[('state', 'not in', 'draft')]}"/>
 		                   		</group>
                     			<group>
                     			    <field name="date_out"/>
@@ -69,7 +73,6 @@
                 <field name="authorized_id" />
                 <field name="date"/>
                 <field name="drive_id" />
-                <field name="origin" />
                 <field name="vehicle_id" />
                 <field name="state" />
             </tree>

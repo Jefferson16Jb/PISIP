@@ -1,4 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_reservation,reservation,model_reservation,,1,1,1,1
-access_reservation_line,reservation_line,model_reservation_line,,1,1,1,1
 access_request_vehicle,request_vehicle,model_request_vehicle,,1,1,1,1

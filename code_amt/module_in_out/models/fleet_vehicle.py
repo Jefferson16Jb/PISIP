@@ -4,6 +4,7 @@ from odoo import models, fields
 
 list_state = [
     ('available', u'Disponible'),
+    ('in_process', u'En tramite'),
     ('service', u'En servicio'),
     ('repair', u'Reparación')]
 
