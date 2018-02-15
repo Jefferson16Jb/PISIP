@@ -16,6 +16,7 @@
     'data': [
         'security/ir.model.access.csv',
         'data/request_vehicle_data.xml',
+        'data/mail_template_data.xml',
         'views/fleet_vehicle_views.xml',
         'views/fleet_vehicle_cost_views.xml',
         'views/fleet_vehicle_model_views.xml',
