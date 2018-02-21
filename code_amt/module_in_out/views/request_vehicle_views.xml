@@ -98,4 +98,13 @@
 
     <menuitem action="request_vehicle_action" parent="fleet.fleet_vehicles" id="request_vehicle_menu" sequence="2"/>
     
+    <report id="request_vehicle"
+	    model="request.vehicle"
+	    string="Solicitud de Vehiculo"
+	    report_type="qweb-pdf"
+	    name="module_in_out.report_request_vehicle"
+	    file="module_in_out.report_request_vehicle"
+	    attachment_use="True"
+	    attachment="('Solicitud_'+(object.name or '').replace('/','')+'.pdf')"/>
+    
 </odoo>

@@ -10,12 +10,33 @@
             <field name="partner_to">${object.drive_id.id}</field>
             <field name="model_id" ref="module_in_out.model_request_vehicle"/>
             <field name="auto_delete" eval="True"/>
+            <field name="report_template" ref="request_vehicle"/>
             <field name="lang">${object.elaborared_id.lang}</field>
-            <field name="body_html" type="html">
-			<div>
-			<p>Conductor ${object.drive_id.name}, </p>
-			</div>
-			</field>
+            <field name="body_html"><![CDATA[
+			<p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"></p>
+
+<div style="font-family: 'Lucida Grande', Helvetica, Verdana, Arial, sans-serif; font-size: 18px; text-align: center;"> ${object.drive_id.name}<br><p></p><p></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">
+
+Has recibido una solicitud de<br></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"><br></p>
+<p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">
+<img src="/web/image/627/logo_amt.png" style="border-image-repeat:stretch stretch;border-image-outset:0 0 0 0;border-image-width:1 1 1 1;border-image-slice:100% 100% 100% 100%;border-image-source:none;-moz-border-left-colors:none;-moz-border-bottom-colors:none;-moz-border-right-colors:none;-moz-border-top-colors:none;border-left-color:currentcolor;border-bottom-color:currentcolor;border-right-color:currentcolor;border-top-color:currentcolor;border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none;border-image: initial; border-color: initial; border-style: initial; width: 200px; height: 120px" data-original-title="" title="" class=""><br></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">
+</p><div style="width: 50%; border: 1px solid #d3d9dd; margin: 2px auto 5px auto"></div>
+<br><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"><br></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">Número ${object.name}<br></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">
+	<br></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"><br></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">
+	<span style="display: block; margin: 0 30%; background-color:#e4e8ea; text-align: center; padding: 10px 0; font-size: 16px">${datetime.datetime.strptime(object.date, '%Y-%m-%d').strftime('%d de %B %Y').lstrip('0')}</span>
+	<br></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"><br></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">
+	<br></p><p></p><p></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">
+	</p><div style="width: 50%; border: 1px solid #d3d9dd; margin: 2px auto 5px auto"></div>
+	<div style="display: block; margin: 10px 30%; background-color:#e4e8ea; text-align: center; padding: 10px 0; font-size: 16px">
+		${object.company_id.name}<br><p></p><p></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">
+		${object.company_id.street or ''}<br></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">  ${object.company_id.city or ''}<br></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">
+		${object.company_id.phone or ''}<br></p><p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">
+		${object.company_id.website or ''}
+	</p></div>
+</div>
+
+<p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"></p>
+			]]></field>
         </record>
 
     </data>
