@@ -28,7 +28,7 @@ class RequestVehicle(models.Model):
                                     help=u'Asigna la persona responsable en elaborar el documento.', track_visibility='always')
     vehicle_id = fields.Many2one('fleet.vehicle', string=u'Vehículo', required=True, domain=[('state_availability', '=', 'available')], 
                                  help=u'Asigna un vehículo disponible al conductor.', track_visibility='always', copy=False)
-    drive_id = fields.Many2one('res.partner', string=u'Conductor', required=True,  ondelete='restrict', index=True, domain=[('type_partner', '=', 'driver')], 
+    drive_id = fields.Many2one('res.partner', string=u'Solicitante', required=True,  ondelete='restrict', index=True, domain=[('type_partner', '=', 'driver'), ('service_vehicle', '=', False)], 
                                readonly=True, states={'draft': [('readonly', False)]}, help=u'Asigna la persona responsable en elaborar el documento.', copy=False)
     date_out = fields.Date(string=u'Fecha salida', required=True, readonly=True, states={'draft': [('readonly', False)]}, help=u'Fecha salida del vehículo.')
     date_in = fields.Date(string=u'Fecha ingreso', required=True, readonly=True, states={'draft': [('readonly', False)]}, help=u'Fecha ingreso el vehículo.')
@@ -61,18 +61,21 @@ class RequestVehicle(models.Model):
     def action_denied(self):
         self.state = 'denied'
         self.vehicle_id.state_availability = 'available'
+        self.drive_id.service_vehicle = False
     
     
     @api.multi
     def action_cancel(self):
         self.state = 'cancel'
         self.vehicle_id.state_availability = 'available'
+        self.drive_id.service_vehicle = False
         
     
     @api.multi
     def action_aproved(self):
         self.state = 'approved'
         self.vehicle_id.state_availability = 'service'
+        self.drive_id.service_vehicle = True
     
     
     @api.multi
@@ -83,6 +86,8 @@ class RequestVehicle(models.Model):
     @api.multi
     def action_re_entry(self):
         self.state = 're_entry'
+        self.vehicle_id.state_availability = 'available'
+        self.drive_id.service_vehicle = False
     
 
     @api.multi

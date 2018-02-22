@@ -4,5 +4,6 @@ encoding//module_in_out/models/__init__.py=utf-8
 encoding//module_in_out/models/fleet_vehicle.py=utf-8
 encoding//module_in_out/models/request_vehicle.py=utf-8
 encoding//module_settings/__init__.py=utf-8
+encoding//module_settings/__manifest__.py=utf-8
 encoding//module_settings/models/__init__.py=utf-8
 encoding//module_settings/models/res_partner.py=utf-8

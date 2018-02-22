@@ -12,10 +12,9 @@
     'category': 'Vehiculos',
     'website': 'https://www.amt.com',
     'images' : [],
-    'depends' : ['base', 'contacts'],
+    'depends' : ['base', 'mail', 'contacts'],
     'data': [
         'data/res_groups.xml',
-        
         'views/res_partner_view.xml',
     ],
     'demo': [
