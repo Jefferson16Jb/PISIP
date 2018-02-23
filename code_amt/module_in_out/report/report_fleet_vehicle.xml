@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xml>
+<odoo>
+    <data>
+    
+		<template id="report_fleet_vehicle">
+			<t t-call="web.html_container">
+				<t t-foreach="docs" t-as="o">
+		            <t t-call="web.external_layout">
+		                <div class="page">
+		                	<div class="row mt32 mb32 text-center">
+			                    <h2>
+			                    	<strong>Vehiculo° </strong>
+			                        <span t-field="o.model_id.name"/>
+			                        <span t-field="o.license_plate"/>
+			                    </h2>
+			                    <p>______________________________________________________________________________________________________________</p>
+		                    </div>
+		
+		                    <div class="row mt32 mb32">
+		                    	<div class="col-xs-1"></div>
+		                        <div class="col-xs-2">
+		                            <strong>Número de chasis:</strong>
+		                        </div>
+		                        <div class="col-xs-3" t-if="o.vin_sn">
+		                            <p t-field="o.vin_sn"/>
+		                        </div>
+		                        <div class="col-xs-2">
+		                            <strong>Año del modelo:</strong>
+		                        </div>
+		                        <div class="col-xs-3" t-if="o.model_year">
+		                            <p t-field="o.model_year"/>
+		                        </div>
+		                    </div>
+		                    
+		                    <div class="row mt32 mb32">
+		                    	<div class="col-xs-1"></div>
+		                        <div class="col-xs-2">
+		                            <strong>Fecha de adquisición:</strong>
+		                        </div>
+		                        <div class="col-xs-3" t-if="o.acquisition_date">
+		                            <p t-field="o.acquisition_date"/>
+		                        </div>
+		                        <div class="col-xs-2">
+		                            <strong>Estado:</strong>
+		                        </div>
+		                        <div class="col-xs-3">
+		                        	<h4>
+			                        <span t-if="o.state_availability == 'available'">Disponible</span>
+			                        <span t-if="o.state_availability == 'in_process'">En tramite</span>
+			                        <span t-if="o.state_availability == 'service'">En servicio</span>
+			                        <span t-if="o.state_availability == 'repair'">Reparación</span>
+			                        </h4>
+		                        </div>
+		                    </div>
+		                    
+		                    <div class="row mt32 mb32">
+		                    	<div class="col-xs-1"></div>
+		                        <div class="col-xs-2">
+		                            <strong>N° de asientos:</strong>
+		                        </div>
+		                        <div class="col-xs-3" t-if="o.seats">
+		                            <p t-field="o.seats"/>
+		                        </div>
+		                        <div class="col-xs-2">
+		                            <strong>N° de puertas:</strong>
+		                        </div>
+		                        <div class="col-xs-3" t-if="o.doors">
+		                            <p t-field="o.doors"/>
+		                        </div>
+		                    </div>
+
+		                    <div class="row mt32 mb32">
+		                    	<div class="col-xs-1"></div>
+		                        <div class="col-xs-2">
+		                            <strong>Transmisión:</strong>
+		                        </div>
+		                        <div class="col-xs-3" t-if="o.transmission">
+		                            <p t-field="o.transmission"/>
+		                        </div>
+		                        <div class="col-xs-2">
+		                            <strong>Tipo de combustible:</strong>
+		                        </div>
+		                        <div class="col-xs-3" t-if="o.fuel_type">
+		                            <p t-field="o.fuel_type"/>
+		                        </div>
+		                    </div>
+
+		                    <br/>
+		                    <br/>
+		                    <br/>
+		                    <br/>
+		                    <br/>
+		                    <br/>
+		                    <br/>
+		                    <div class="row mt32 mb32">
+								<div class="col-xs-1">
+								</div>
+			                  	<div class="col-xs-3 text-center">
+			                      	<strong>Elaborado por: </strong>
+			                      	<br/>
+			                      	<br/>
+			                      	<br/>
+			                      	<p>______________________</p>
+			                  	</div>
+			                  	<div class="col-xs-3 text-center">
+			                      	<strong>Técnico: </strong>
+			                      	<br/>
+			                      	<br/>
+			                      	<br/>
+			                      	<p>______________________</p>
+			                  	</div>
+			                  	<div class="col-xs-3 text-center">
+			                      	<strong>Revisado por: </strong>
+			                      	<br/>
+			                      	<br/>
+			                      	<br/>
+			                      	<p>______________________</p>
+			                  	</div>
+							</div>
+		                    
+		                </div>
+		            </t>
+	            </t>
+            </t>
+        </template>
+
+	</data>
+</odoo>

@@ -12,8 +12,8 @@
                     <button name="action_sent_mail" type="object" states="wait,approved" string="Enviar correo electrónico"/>
                     <button name="action_service" states="approved" string="Circular" type="object" class="oe_highlight"/>
                     <button name="action_re_entry" states="circulation" string="Re-ingresar" type="object" class="oe_highlight"/>
-                    <button name="action_aproved" states="wait" string="Aprobado" type="object" class="oe_highlight"/>
-                    <button name="action_denied" states="wait,approved" string="Denegado" type="object"/>
+                    <button name="action_aproved" states="wait" string="Aprobado" type="object" class="oe_highlight" groups="fleet.fleet_group_manager"/>
+                    <button name="action_denied" states="wait,approved" string="Denegado" type="object" groups="fleet.fleet_group_manager"/>
                     <button name="action_cancel" states="wait" string="Cancelar" type="object"/>
                     <button name="action_draft" states="cancel" string="Cambiar a borrador" type="object"/>
                     <field name="state" widget="statusbar" clickable="True"/>
@@ -27,7 +27,7 @@
                     <group col="2" string="General Properties">
                         <group >
                             <field name="elaborared_id" attrs="{'readonly':[('state', 'not in', 'draft')]}"/>
-                            <field name="drive_id" attrs="{'readonly':[('state', 'not in', 'draft')]}"/>
+                            <field name="drive_id" string="Solicitante" attrs="{'readonly':[('state', 'not in', 'draft')]}"/>
                         </group>
                         <group >
                         	<field name="authorized_id" attrs="{'readonly':[('state', 'not in', 'draft')]}"/>

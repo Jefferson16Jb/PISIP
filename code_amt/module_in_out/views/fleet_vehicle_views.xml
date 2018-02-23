@@ -74,6 +74,14 @@
 		</field>
 	</record>
 
+    <report id="fleet_vehicle"
+	    model="fleet.vehicle"
+	    string="Reporte de Vehiculo"
+	    report_type="qweb-pdf"
+	    name="module_in_out.report_fleet_vehicle"
+	    file="module_in_out.report_fleet_vehicle"
+	    attachment_use="True"
+	    attachment="('Reporte_'+(object.name or '').replace('/','')+'.pdf')"/>
 	
 	
 </odoo>
